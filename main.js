@@ -98,3 +98,26 @@ const getControls = prefix => ({
 		}
 	};
 })();
+
+(() => {
+	const {input, button, result} = getControls('test9');
+	button.onclick = () => {
+		const citys = input.value.split(',');
+		citys.map(c => {
+			const li = document.createElement('li');
+			li.textContent = c;
+			return result.appendChild(li);
+		});
+	};
+})();
+
+(() => {
+	const {input, button} = getControls('test10');
+
+	button.onclick = () => {
+		const {value} = input;
+		const includes = value.includes('3');
+
+		alert(`Это число ${includes ? '' : 'не'} содержит 3`);
+	};
+})();
